@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informe parcial {{ estudiante.periodo }}{% endblock %}
+
+{% block body %}
+
+
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex justify-content-center m-2 p-5">
+
+        <div class="row d-flex justify-content-center m-5 p-5"><h2>Informe parcial del periodo {{ estudiante.periodo }} - Sede {{ estudiante.sede }} 2024</h2></div>
+        <h3>{{ estudiante.nombre }} - Grado: {{ estudiante.grado }}</h3>
+        <h4>Cantidad de materias reportadas: {{ cantidadMateriasReportadas }}</h4>
+
+        <ul>
+            {% if estudiante.uno %} <li>{{ estudiante.uno }}</li>{% endif %}
+            {% if estudiante.dos %} <li>{{ estudiante.dos }}</li>{% endif %}
+            {% if estudiante.tres %} <li>{{ estudiante.tres }}</li>{% endif %}
+            {% if estudiante.cuatro %} <li>{{ estudiante.cuatro }}</li>{% endif %}
+            {% if estudiante.cinco %} <li>{{ estudiante.cinco }}</li>{% endif %}
+            {% if estudiante.seis %} <li>{{ estudiante.seis }}</li>{% endif %}
+            {% if estudiante.siete %} <li>{{ estudiante.siete }}</li>{% endif %}
+            {% if estudiante.ocho %} <li>{{ estudiante.ocho }}</li>{% endif %}
+            {% if estudiante.nueve %} <li>{{ estudiante.nueve }}</li>{% endif %}
+            {% if estudiante.diez %} <li>{{ estudiante.diez }}</li>{% endif %}
+            {% if estudiante.once %} <li>{{ estudiante.once }}</li>{% endif %}
+            {% if estudiante.doce %} <li>{{ estudiante.doce }}</li>{% endif %}
+            {% if estudiante.trece %} <li>{{ estudiante.trece }}</li>{% endif %}
+            {% if estudiante.catorce %} <li>{{ estudiante.catorce }}</li>{% endif %}
+        </ul>
+
+        {% if cantidadMateriasReportadas > 0 %} 
+        
+            <h6>
+                El estudiante {{ estudiante.nombre }} con su acudiente podrán presentarse a cada uno de los profesores de las áreas reportadas 
+                el {{ estudiante.fecha }} {{ estudiante.hora }} en la sede {{ estudiante.lugar }}. Este informe hace parte del seguimiento académico del estudiante y una estrategia
+                para estimular su promoción. 
+
+            </h6>
+        {% endif %}
+        
+        <a href="{{ path('app_inicio') }}" class="btn btn-primary">Regresar </a>
+    </div>
+    
+    
+</div>
+{% endblock %}

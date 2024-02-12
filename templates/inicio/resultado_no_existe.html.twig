@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informe parcial 2024{% endblock %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex justify-content-center m-2 p-5">
+
+        <div class="row d-flex justify-content-center m-5 p-5"><h2>El estudiante con el documento ingresado no existe. Por favor revisa nuevamente</h2></div>
+        
+        <a href="{{ path('app_inicio') }}" class="btn btn-primary">Regresar </a>
+    </div>
+</div>
+{% endblock %}
