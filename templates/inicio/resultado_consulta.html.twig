@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Informe parcial {{ estudiante.periodo }}{% endblock %}
+{% block title %}Informe parcial del periodo {{ estudiante.periodo }}{% endblock %}
 
 {% block body %}
 
@@ -8,9 +8,9 @@
 <div class="container d-flex justify-content-center">
     <div class="row d-flex justify-content-center m-2 p-5">
 
-        <div class="row d-flex justify-content-center m-5 p-5"><h2>Informe parcial del periodo {{ estudiante.periodo }} - Sede {{ estudiante.sede }} 2024</h2></div>
-        <h3>{{ estudiante.nombre }} - Grado: {{ estudiante.grado }}</h3>
-        <h4>Cantidad de materias reportadas: {{ cantidadMateriasReportadas }}</h4>
+        <div class="row d-flex justify-content-center m-5 p-5"><h2>Informe parcial del periodo {{ estudiante.periodo }} - Sede {{ estudiante.sede|title }} 2024</h2></div>
+        <h3>{{ estudiante.nombre|title }} - Grado: {{ estudiante.grado|title }}</h3>
+        <h3>Cantidad de materias reportadas: {{ cantidadMateriasReportadas }}</h3>
 
         <ul>
             {% if estudiante.uno %} <li>{{ estudiante.uno }}</li>{% endif %}
@@ -31,12 +31,19 @@
 
         {% if cantidadMateriasReportadas > 0 %} 
         
-            <h6>
-                El estudiante {{ estudiante.nombre }} con su acudiente podrán presentarse a cada uno de los profesores de las áreas reportadas 
-                el {{ estudiante.fecha }} {{ estudiante.hora }} en la sede {{ estudiante.lugar }}. Este informe hace parte del seguimiento académico del estudiante y una estrategia
-                para estimular su promoción. 
+            <h5>
+                El estudiante {{ estudiante.nombre|title }} debe presentarse con su acudiente donde cada uno de los profesores de las materias reportadas 
+                el {{ estudiante.fecha }} a las {{ estudiante.hora }} en la sede {{ estudiante.lugar }}. 
+            </h5>
+            <h5>Este informe hace parte del seguimiento académico del estudiante.</h5>
+        {% endif %}
 
-            </h6>
+        {% if cantidadMateriasReportadas == 0 %}
+            <h3 style="color: green;">
+                ¡FELICITACIONES!, sigue aprendiendo con esfuerzo y voluntad para que No repruebes ninguna materia en el periodo {{ estudiante.periodo }}
+
+            </h3>
+
         {% endif %}
         
         <a href="{{ path('app_inicio') }}" class="btn btn-primary">Regresar </a>
