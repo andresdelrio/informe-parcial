@@ -1,16 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InicioController!{% endblock %}
+{% block title %}Consulta reporte parcial{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    /* Define colores y fuentes base */
+    :root {
+        --color-primary: #007bff; /* Azul Bootstrap */
+        --color-secondary: #6c757d; /* Gris Bootstrap */
+        --color-background: #f8f9fa; /* Fondo claro Bootstrap */
+        --color-text: #212529; /* Texto oscuro Bootstrap */
+        --font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* Estilo general del cuerpo */
+    body {
+        background-color: var(--color-background);
+        color: var(--color-text);
+        font-family: var(--font-family-sans-serif);
+    }
+
+    /* Estilo del contenedor */
+    .example-wrapper {
+        margin: 1em auto;
+        padding: 2em;
+        max-width: 800px;
+        width: 95%;
+        background-color: white;
+        border-radius: 0.5em;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        margin-bottom: 1em;
+        color: var(--color-primary);
+    }
+
+    /* Estilo responsivo */
+    @media (max-width: 768px) {
+        .example-wrapper {
+            padding: 1em;
+        }
+    }
 </style>
 
 <div class="example-wrapper">
-    <h4>Ingresa con el documeto de identidad del estudiante para consultar su reporte académico parcial</h4>
-
-    {{ form(formulario)}}
+    <h4>Ingresa con el documento de identidad del estudiante para consultar su reporte académico parcial</h4>
+    {{ form(formulario) }}
 </div>
 {% endblock %}
