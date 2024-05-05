@@ -32,23 +32,22 @@
         {% if cantidadMateriasReportadas > 0 %} 
         
             <h5>
-                El estudiante {{ estudiante.nombre|title }} debe presentarse con su acudiente donde cada uno de los profesores de las materias reportadas 
+                El estudiante {{ estudiante.nombre|title }} debe presentarse con su acudiente a cada uno de los profesores de las materias reportadas 
                 el {{ estudiante.fecha }} a las {{ estudiante.hora }} en la sede {{ estudiante.lugar }}. 
             </h5>
-            <h5>Este informe hace parte del seguimiento académico del estudiante.</h5>
+            <p>Este informe hace parte del seguimiento académico del estudiante.</p>
+            <h5 style="color: red;"> {{ estudiante.observaciones }}</h5>
         {% endif %}
 
         {% if cantidadMateriasReportadas == 0 %}
             <h3 style="color: green;">
-                ¡FELICITACIONES!, sigue aprendiendo con esfuerzo y voluntad para que No repruebes ninguna materia en el periodo {{ estudiante.periodo }}
-
+                ¡FELICITACIONES!🥳, sigue aprendiendo con esfuerzo y voluntad para que No repruebes ninguna materia en el periodo {{ estudiante.periodo }}
             </h3>
 
         {% endif %}
         
         <a href="{{ path('app_inicio') }}" class="btn btn-primary">Regresar </a>
     </div>
-    
     
 </div>
 {% endblock %}
